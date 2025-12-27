@@ -1,0 +1,44 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Test Script", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+OrionLib:MakeNotification({
+	Name = "Test",
+	Content = "This is a test script",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+Tab:AddButton({
+	Name = "Super jump :0",
+	Callback = function(local player = game.Players.LocalPlayer
+
+local function onCharacterAdded(character)
+	local humanoid = character:WaitForChild("Humanoid")
+
+	-- Make sure JumpPower is being used
+	humanoid.UseJumpPower = true
+
+	-- Increase jump power by 5x
+	humanoid.JumpPower = humanoid.JumpPower * 5
+end
+
+-- Run when the character spawns
+if player.Character then
+	onCharacterAdded(player.Character)
+end
+
+player.CharacterAdded:Connect(onCharacterAdded)
+)
+      		print("Clicked :3")
+  	end    
+})
+Tab:AddToggle({
+	Name = "Nothing :0",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
